@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LaTeX-Vorlage fuer die Gestaltung der Ausarbeitung zu einem Seminar
+%
+% Basierend auf einer Vorlage von Joerg Willmann vom 06.06.2002
+% Ueberarbeitet von Clemens Juergens am 12.06.2002
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{seminar}
+%\usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+%\usepackage{url}
+\usepackage[round]{natbib}
+\usepackage{algorithm2e}
+
+
+
+\begin{document}
+\renewcommand\toptitle{Seminar: ,,Multimedia-Standards im Internet``}
+\title{Neural Style Transfer}
+\author{Stefan Wezel}
+\maketitle
+
+
+\addvspace{0.5cm}
+\emph{\bfseries{Abstract:}}
+\emph{Please give a short version of the content of your report.}
+
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+Don't forget to change the head of your report. title, seminar, author, ...
+
+\subsection{sub section}
+FIGURES have captions below the figures!!!\\
+TABLES have captions above the tables!!!\\
+
+\section{Conclusion}
+Don't forget to cite !!!\\
+How to cite something: \cite{Subramanian2005, Bjoerkholm2009}.
+
+
+
+  \begin{table}
+  \caption{caption}
+  \begin{tabular}{|c|c|c|}
+\hline
+ A & B & C \\
+\hline
+ 1 & 2 & 3  \\
+\hline 
+ 4 & 5 & 6 \\
+\hline
+\end{tabular}
+  \end{table}
+
+
+\newpage
+
+% Variante mit seperatem Bibtex-File
+
+\bibliographystyle{natbib}
+\bibliography{seminarRefs}
+
+
+% Variante zum manuellen Eintragen der Referenzen
+%\begin{thebibliography}{01}
+%\bibitem[Hunt98]{Hunt98}
+%C. Hunt, TCP/IP Network Administration, O'Reilly 1998.
+%\bibitem[Schnei94]{Schnei94}
+%Dr. G. Schneider, Internet: Werkzeuge und Dienste, Springer-Verlag
+%Berlin Heidelberg 1994.
+%\end{thebibliography}
+\end{document}
+
+
+
