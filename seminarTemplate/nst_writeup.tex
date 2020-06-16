@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% LaTeX-Vorlage fuer die Gestaltung der Ausarbeitung zu einem Seminar
+%
+% Basierend auf einer Vorlage von Joerg Willmann vom 06.06.2002
+% Ueberarbeitet von Clemens Juergens am 12.06.2002
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{seminar}
+%\usepackage[applemac]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+%\usepackage{url}
+\usepackage[round]{natbib}
+\usepackage{algorithm2e}
+
+
+
+\begin{document}
+	\renewcommand\toptitle{Seminar: ,,Current Topics in Deep Neural Networks``}
+	\title{Neural Style Transfer}
+	\author{Stefan Wezel}
+	\maketitle
+	
+	
+	\addvspace{0.5cm}
+	\emph{\bfseries{Abstract:}}
+	\emph{Introduced by \cite{gatys2015neural}, the field of Neural Style Transfer has not only evolved rapidly but also allowed for insights into the processes inside neural networks and into human perception. Various methods, ranging from image based to model based approaches have been introduced to alleviate the weaknesses of the original formulation. Here, we recapture the idea behind \cite{gatys2015neural}'s algorithm and give an overview of methods, used in the current field of Neural Style Transfer.}
+	
+	
+	\tableofcontents
+	\newpage
+	
+	\section{Introduction}
+	Art has played an important role in human culture throughout most of its history \cite{carroll2004art}. Despite this, little is known about what the deciding factors of what we perceive as aesthetic are. Recent progresses in Artificial Intelligence yield astonishing accuracy in computer vision tasks, leading to the impression, that Convolutional Neural Nets almost rival the perceptive prowess of the human visual cortex.
+	\\ 
+	Applying the style of one image to the content of another has been a topic in the field of non-realistic rendering for more than two decades \cite{jing2019neural}.
+	\\
+	\cite{gatys2015neural}'s work showed that powerful Convolutional Neural Nets can be used to transfer arbitrary styles to any content image. Besides the visually astonishing results, their work also gives us an insight on the creation and perception of artistic images, a field where Neural Networks have not yet been as outstanding as their human counterpart.\\
+	
+	
+	
+	
+	
+	\subsection{sub section}
+	FIGURES have captions below the figures!!!\\
+	TABLES have captions above the tables!!!\\
+	
+	\section{Original Idea}
+	
+	\section{Methods}
+	\subsection{Image Based}
+	\subsection{Model Based}
+	
+	\section{Challenges/Outlook}
+	\subsection{Evaluation}
+	\subsection{Interpretability}
+	
+	
+	
+	
+	
+	
+	\section{Conclusion}
+	
+	
+	
+	
+	
+	\begin{table}
+		\caption{caption}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			A & B & C \\
+			\hline
+			1 & 2 & 3  \\
+			\hline 
+			4 & 5 & 6 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	\newpage
+	
+	% Variante mit seperatem Bibtex-File
+	
+	\bibliographystyle{natbib}
+	\bibliography{seminarRefs}
+	
+	
+	% Variante zum manuellen Eintragen der Referenzen
+	%\begin{thebibliography}{01}
+	%\bibitem[Hunt98]{Hunt98}
+	%C. Hunt, TCP/IP Network Administration, O'Reilly 1998.
+	%\bibitem[Schnei94]{Schnei94}
+	%Dr. G. Schneider, Internet: Werkzeuge und Dienste, Springer-Verlag
+	%Berlin Heidelberg 1994.
+	%\end{thebibliography}
+\end{document}
+
+
+
