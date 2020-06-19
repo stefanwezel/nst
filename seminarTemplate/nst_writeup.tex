@@ -17,90 +17,124 @@
 %\usepackage{url}
 \usepackage[round]{natbib}
 \usepackage{algorithm2e}
+\usepackage{amsmath}
 
 
 
 \begin{document}
-	\renewcommand\toptitle{Seminar: ,,Current Topics in Deep Neural Networks``}
-	\title{Neural Style Transfer}
-	\author{Stefan Wezel}
-	\maketitle
-	
-	
-	\addvspace{0.5cm}
-	\emph{\bfseries{Abstract:}}
-	\emph{Introduced by \cite{gatys2015neural}, the field of Neural Style Transfer has not only evolved rapidly but also allowed for insights into the processes inside neural networks and into human perception. Various methods, ranging from image based to model based approaches have been introduced to alleviate the weaknesses of the original formulation. Here, we recapture the idea behind \cite{gatys2015neural}'s algorithm and give an overview of methods, used in the current field of Neural Style Transfer.}
-	
+\renewcommand\toptitle{Seminar: ,,Current Topics in Deep Neural Networks``}
+\title{Neural Style Transfer}
+\author{Stefan Wezel}
+\maketitle
+
+
+\addvspace{0.5cm}
+\emph{\bfseries{Abstract:}}
+\emph{Introduced by \cite{gatys2015neural}, the field of Neural Style Transfer has not only evolved rapidly but also allowed for insights into the processes inside neural networks and into human perception. Various methods, ranging from image based to model based approaches have been introduced to alleviate the weaknesses of the original formulation. Here, we recapture the idea behind \cite{gatys2015neural}'s algorithm and give an overview of methods, used in the current field of Neural Style Transfer.}
+
 	
 	\tableofcontents
 	\newpage
 	
-	\section{Introduction}
-	Art has played an important role in human culture throughout most of its history \cite{carroll2004art}. Despite this, little is known about what the deciding factors of what we perceive as aesthetic are. Recent progresses in Artificial Intelligence yield astonishing accuracy in computer vision tasks, leading to the impression, that Convolutional Neural Nets almost rival the perceptive prowess of the human visual cortex.
-	\\ 
-	Applying the style of one image to the content of another has been a topic in the field of non-realistic rendering for more than two decades \cite{jing2019neural}.
-	\\
-	\cite{gatys2015neural}'s work showed that powerful Convolutional Neural Nets can be used to transfer arbitrary styles to any content image. Besides the visually astonishing results, their work also gives us an insight on the creation and perception of artistic images, a field where Neural Networks have not yet been as outstanding as their human counterpart.\\
+\section{Introduction}
+Art has played an important role in human culture throughout most of its history [\cite{carroll2004art}]. Despite this, little is known about what the deciding factors of what we perceive as aesthetic are. Recent progresses in Artificial Intelligence yield astonishing accuracy in computer vision tasks, leading to the impression, that Convolutional Neural Nets almost rival the perceptive prowess of the human visual cortex.
+\\ 
+Applying the style of one image to the content of another has been a topic in the field of non-realistic rendering for more than two decades [\cite{jing2019neural}].
+\\
+\cite{gatys2015neural}'s work showed that powerful Convolutional Neural Nets can be used to transfer arbitrary styles to any content image. Besides the visually astonishing results, their work also gives us an insight on the creation and perception of artistic images, a field where Neural Networks have not yet been as outstanding as their human counterpart.
+
+\section{Related Work}
+Before Neural Networks were applied to Style transfer, a popular approach to the problem existed in image-based artistic rendering [\cite{kyprianidis2012state}]. This area of research can be subdivided into multiple directions. \textbf{Linear Transformations}, i.e. Filters designed for image processing are used to create stylized images by \cite{winnemoller2006real} and \cite{tomasi1998bilateral} among others.\\ 
+Another popular approach, \textbf{Stroke-Based Rendering} typically starts with a photograph on which then strokes are placed to mimic a certain style. The placement of the strokes is optimized to a given objective function some quantity that measures how similar the synthetic paining is to a specified image [\cite{hertzmann2003survey}]. Another technique is \textbf{Region-based Rendering} where an image is segmented into different regions. This enables a rendering algorithm to be sensitive to each region's specific content [\cite{kolliopoulos2005image}]. Both these approaches do lack the ability to incorporate any arbitrary style. Therefore, \cite{hertzmann2001image} proposes to learn a transformation from source to target image in a supervised fashion with the \textbf{Example-Bassed Rendering} technique of Image Analogies. This, however, requires training data which may not be available.\\
+While not having been designed for the goal of creating an artistic image, important contributions to style transfer research also came from \textbf{Texture Synthesis}. 
+Early work there focused on pixel measurements [\cite{julesz1962visual}].
+Later, filter responses played an important role in the work of \cite{heeger1995pyramid} and \cite{portilla2000parametric}. The use of summary statistics in Texture Synthesis can be noted as a precursor to the Neural Style Transfer Algorithm proposed by \cite{gatys2015neural}. There, however, not the statistics of an image, but rather the statistics of the latent representation of an image are used for measuring similarity in style.\\
+Rather than using Descriptive Statistics, another branch of research exploits Markov Random Fields (MRF) in a \textbf{non-parametric modeling} approach to render stylized images. A MRF assumes that each pixel is characterized solely by the pixels in its spatial neighborhood [\cite{jing2019neural}].
+\cite{efros1999texture} find pixels in the texture image by finding pixels whose neighborhoods resemble each others and then replacing them in the source image.\\
+The topic of Neural Style Transfer can also be linked to \textbf{Image Reconstruction} where rather than encoding images into latent representation, the goal is to create an image from given information. An approach, proposed by \cite{mahendran2015understanding} is able to generate images by optimizing latent representations. Given random noise, the algorithm iteratively optimizes the image up to a point where its latent representation matches that of those, generated by a convolutional net.
+This is computationally expensive because a new training process is required for every image. In order to generate images faster, \cite{dosovitskiy2016generating} propose to train a generative model to produce an image. Then, after a training stage, images can be computed in real-time, thus shifting the computational effort.
+
+
+
+
+\section{Original Algorithm of Neural Style Transfer}
+Using summarizing statistics from the feature representation of CNNs, \cite{gatys2015neural} propose an image based approach to Style Transfer. In their algorithm a given image is optimized to match two source images, one being responsible for the content and the other for the style of the image to optimize.
+\subsection{Setting}
+Given two images, one responsible for content, and one for style, the goal of Neural Style Transfer is to create a stylized image that matches the content images content and the style images style. The stylized image is iteratively optimized according to two loss terms.
+
+\subsection{VGG-Net}
+Convolutional Neural Networks have proven to represent features of input images efficiently once trained for a task like image classification. An architecture that became popular after winning the ILSVRC localization task in 2014 is the VGG-net [\cite{ILSVRC15}]. The VGG-net architecture (\ref{fig:vgg}) is characterized by stacking multiple convolutional layers, then apply a pooling operation. This is repeated multiple times up to one or more fully connected layers, which can serve as task specific head \cite{simonyan2014very}.\\
+The latent representations from different convolutional layers are extracted by \cite{gatys2015neural} and serve as basis for obtaining summarizing statistics.
+These statistics are used to transform the input image.
+
+%TODO find actual source of this image or draw yourself
+\begin{figure} %TODO maybe highlight layers which are used
+	\centering
+	\includegraphics[scale=0.37]{vgg16.png}
+	\caption{Architecture of the VGG net introduced by \cite{simonyan2014very}. \cite{gatys2015neural} extract feature representations from different convolutional layers.}
+	\label{fig:vgg}
+\end{figure}
+
+\subsection{Algorithm}
+The algorithm starts by extracting a content representation from the content image and style representation of the style image using the VGG-net. From the image, we want to optimize, we extract content as well as style. Then, the distance between the style representations and the content representations is measured. Each distance is a respective loss which gives us two quantities we can minimize. These two loss terms, style loss and content loss, are each multiplied with a small scalar and then added up, giving us our final loss term. The the gradient of the loss function for the current state of the input image is computed and then backpropagated. However only the input image is adjusted according to the gradient and none of the parameters of the VGG-net used to extract the representations.
+
+
+\subsection{Content Representation}
+
+
+
+\subsection{Style Representation}
+The Gram matrix of a set of vectors contains the inner product of all combination of vectors from the set. In the case of Neural Style transfer, the set of vectors is the set of vectorized feature maps.
+By calculating the inner product of each of the feature vectors, all spatial information is removed. Remaining is the information about how often the features appear in the same position. This gives us a spatially invariant representation of style by capturing what features correlate rather than where a feature appears.
+\begin{align}
+	G^l_{ij} = \sum_{k} F^l_{ik}F^l_{jk}
+\end{align}
+
+
+\section{Derivations and Alternative Approaches}
+\subsection{Image Based}
+\subsection{Model Based}
+
+
+
+
+
+
+
+
+
+
+\section{Challenges/Outlook}
+\subsection{Evaluation}
+\subsection{Interpretability}
+
+
 	
 	
 	
 	
-	
-	\subsection{sub section}
-	FIGURES have captions below the figures!!!\\
-	TABLES have captions above the tables!!!\\
-	
-	\section{Original Idea}
-	
-	\section{Methods}
-	\subsection{Image Based}
-	\subsection{Model Based}
-	
-	\section{Challenges/Outlook}
-	\subsection{Evaluation}
-	\subsection{Interpretability}
-	
-	
-	
-	
-	
-	
-	\section{Conclusion}
-	
-	
-	
-	
-	
-	\begin{table}
-		\caption{caption}
-		\begin{tabular}{|c|c|c|}
-			\hline
-			A & B & C \\
-			\hline
-			1 & 2 & 3  \\
-			\hline 
-			4 & 5 & 6 \\
-			\hline
-		\end{tabular}
-	\end{table}
-	
-	
-	\newpage
-	
-	% Variante mit seperatem Bibtex-File
-	
-	\bibliographystyle{natbib}
-	\bibliography{seminarRefs}
-	
-	
-	% Variante zum manuellen Eintragen der Referenzen
-	%\begin{thebibliography}{01}
-	%\bibitem[Hunt98]{Hunt98}
-	%C. Hunt, TCP/IP Network Administration, O'Reilly 1998.
-	%\bibitem[Schnei94]{Schnei94}
-	%Dr. G. Schneider, Internet: Werkzeuge und Dienste, Springer-Verlag
-	%Berlin Heidelberg 1994.
-	%\end{thebibliography}
+\section{Conclusion}
+
+
+
+
+
+\newpage
+
+% Variante mit seperatem Bibtex-File
+
+\bibliographystyle{natbib}
+\bibliography{seminarRefs}
+
+
+% Variante zum manuellen Eintragen der Referenzen
+%\begin{thebibliography}{01}
+%\bibitem[Hunt98]{Hunt98}
+%C. Hunt, TCP/IP Network Administration, O'Reilly 1998.
+%\bibitem[Schnei94]{Schnei94}
+%Dr. G. Schneider, Internet: Werkzeuge und Dienste, Springer-Verlag
+%Berlin Heidelberg 1994.
+%\end{thebibliography}
 \end{document}
 
 
