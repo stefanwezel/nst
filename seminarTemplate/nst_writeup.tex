@@ -79,20 +79,65 @@ These statistics are used to transform the input image.
 The algorithm starts by extracting a content representation from the content image and style representation of the style image using the VGG-net. From the image, we want to optimize, we extract content as well as style. Then, the distance between the style representations and the content representations is measured. Each distance is a respective loss which gives us two quantities we can minimize. These two loss terms, style loss and content loss, are each multiplied with a small scalar and then added up, giving us our final loss term. The the gradient of the loss function for the current state of the input image is computed and then backpropagated. However only the input image is adjusted according to the gradient and none of the parameters of the VGG-net used to extract the representations.
 
 
-\subsection{Content Representation}
+\subsection{Content Representation and Loss}
+A convolutional layer $l$ with $n_l$ filters returns $n_l$ feature maps which mark the positions of where each respective feature occurred. The height and width of these feature maps is determined by the input and stride used [\cite{lecun1999object}]. To extract content information, \cite{gatys2015neural} propose to gather all feature maps of a layer in a feature Matrix $F_l\in\mathcal{R}^{n_l \times m_l}$ where $m_l$ equal the height times the width of the layers feature maps. Each feature map is vectorized and transposed, resulting in a feature vector and then becomes a column of the feature matrix. The level of abstraction of features in $F_l$ is sensitive to the choice of $l$. \cite{gatys2015neural} propose to use layer that captures the shapes and layout of the input image rather than finer features such as texture information.\\
+To measure the difference between an input image $x$ and content image $p$, \cite{gatys2015neural} propose to generate respective feature matrices $F^l$ and $P^l$ and measure mean square distance between these:\\
+\begin{align}
+	\mathcal{L}_{content}(p, x, l) = \frac{1}{2}\sum_{ij}(F^l_{ij} - P^l_{ij})^2
+\end{align}
 
 
 
-\subsection{Style Representation}
-The Gram matrix of a set of vectors contains the inner product of all combination of vectors from the set. In the case of Neural Style transfer, the set of vectors is the set of vectorized feature maps.
+\subsection{Style Representation and Loss}
+The style of an image is invariant to the spatial arrangement of its features. Thus, the style representation should be spatially invariant. Since feature maps contain spatial information and therefore cannot be used to represent style, \cite{gatys2015neural} propose to measure their co-occurrence in an image. For this purpose, they introduce the Gram matrix.
+The Gram matrix of a set of vectors contains the inner product of all combination of vectors from the set. In the case of Neural Style transfer, the set of vectors is the set of vectorized feature maps of a layer $l$.
 By calculating the inner product of each of the feature vectors, all spatial information is removed. Remaining is the information about how often the features appear in the same position. This gives us a spatially invariant representation of style by capturing what features correlate rather than where a feature appears.
 \begin{align}
 	G^l_{ij} = \sum_{k} F^l_{ik}F^l_{jk}
 \end{align}
+\cite{gatys2015neural} found that using multiple layers produced visually more appealing results. So in order to measure similarity in style of input image $x$ and style image $a$, the respective Gram matrices $G^l$ and $A^l$ are computed. 
+The loss term is
+\begin{align*}
+	L_{style}(a,x) = \sum^L_{l=0}w_l E_l
+\end{align*}
+where 
+\begin{align*}
+	E_l = \frac{1}{4n^2_lm^2_l}\sum_{ij}(G^l_{ij}-A^l_{ij})^2
+\end{align*}
+and $w_l$ weights each layers contribution to the style loss.
 
+\subsection{Total Loss and Optimization}
+The total loss term is composed of the style loss and the content loss, each weighted by a factor.
+\begin{align*}
+	\mathcal{L}_{total}(p, a, x) = \alpha \mathcal{L}_{content}(p,x) + \beta \mathcal{L}_{style}(a,x)
+\end{align*}
+where $\alpha$ and $\beta$ are hyperparameters that determine the style/content trade-off.\\
+In order to compute gradients that can be backpropagated to the input image, style and content loss need to be derived according to the layers activation. For content loss, we can compute the derivative with
+\begin{align*}
+	\frac{\partial \mathcal{L}_{content}}{\partial F^l_{ij}} = 
+	    \begin{cases}
+	(F^l-P^l)_{ij} & \text{if}\ F^l_{ij} > 0 \\
+	0 & \text{if} F^l_{ij} <0
+	\end{cases}
+\end{align*}
+where as style loss can be differentiated by
+\begin{align*}
+	\frac{\partial E_l}{\partial F^l_{ij}} =
+		\frac{1}{n_l^2m_l^2}((F^l)^T (G^l-A^l))_{ij} & \text{ if}\ F^l_{ij} > 0 \\
+	0 & \text{ if} F^l_{ij} < 0
+\end{align*}
 
 \section{Derivations and Alternative Approaches}
+Despite the field of Neural Style Transfer being rather young, many alternatives, derivations and improvements to \cite{gatys2015neural} algorithm have been proposed. Generally, we can differ between two approaches. \text{Image-based approaches} iteratively optimize an input image to match the source images content and style. This, however, requires a new training process for every new image. The many resulting backward are computationally expensive. Instead of adjusting an input image, \textbf{Model-based approaches} optimize a generative a model that creates stylized images. Thus shifting the computational cost towards training stage and making real-time generation of stylized images possible. In only a few years, many ideas for both approaches have been proposed.
+In the following section we will have a look at some of those ideas and briefly discuss their benefits and drawbacks.
+
 \subsection{Image Based}
+Deep Dream, an algorithm for interpreting features learned by a convolutional neural net can be viewed as a precursor to Neural Style Transfer.
+
+
+
+
+
 \subsection{Model Based}
 
 
