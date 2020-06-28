@@ -1,0 +1,210 @@
+\begin{thebibliography}{}
+
+\bibitem[Apodaca {\em et~al.}(2000)Apodaca, Gritz, and
+  Barzel]{apodaca2000advanced}
+Apodaca, A.~A., Gritz, L., and Barzel, R. (2000).
+\newblock {\em Advanced RenderMan: Creating CGI for motion pictures\/}.
+\newblock Morgan Kaufmann.
+
+\bibitem[Carroll(2004)Carroll]{carroll2004art}
+Carroll, N. (2004).
+\newblock Art and human nature.
+\newblock {\em The journal of aesthetics and art criticism\/}, {\bf 62}(2),
+  95--107.
+
+\bibitem[Chen {\em et~al.}(2017)Chen, Yuan, Liao, Yu, and
+  Hua]{chen2017stylebank}
+Chen, D., Yuan, L., Liao, J., Yu, N., and Hua, G. (2017).
+\newblock Stylebank: An explicit representation for neural image style
+  transfer.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition\/}, pages 1897--1906.
+
+\bibitem[Chen and Schmidt(2016)Chen and Schmidt]{chen2016fast}
+Chen, T.~Q. and Schmidt, M. (2016).
+\newblock Fast patch-based style transfer of arbitrary style.
+\newblock {\em arXiv preprint arXiv:1612.04337\/}.
+
+\bibitem[Dosovitskiy and Brox(2016)Dosovitskiy and
+  Brox]{dosovitskiy2016generating}
+Dosovitskiy, A. and Brox, T. (2016).
+\newblock Generating images with perceptual similarity metrics based on deep
+  networks.
+\newblock In {\em Advances in neural information processing systems\/}, pages
+  658--666.
+
+\bibitem[Efros and Leung(1999)Efros and Leung]{efros1999texture}
+Efros, A.~A. and Leung, T.~K. (1999).
+\newblock Texture synthesis by non-parametric sampling.
+\newblock In {\em Proceedings of the seventh IEEE international conference on
+  computer vision\/}, volume~2, pages 1033--1038. IEEE.
+
+\bibitem[Gatys {\em et~al.}(2015)Gatys, Ecker, and Bethge]{gatys2015neural}
+Gatys, L.~A., Ecker, A.~S., and Bethge, M. (2015).
+\newblock A neural algorithm of artistic style.
+\newblock {\em arXiv preprint arXiv:1508.06576\/}.
+
+\bibitem[Geirhos {\em et~al.}(2017)Geirhos, Janssen, Sch{\"u}tt, Rauber,
+  Bethge, and Wichmann]{geirhos2017comparing}
+Geirhos, R., Janssen, D.~H., Sch{\"u}tt, H.~H., Rauber, J., Bethge, M., and
+  Wichmann, F.~A. (2017).
+\newblock Comparing deep neural networks against humans: object recognition
+  when the signal gets weaker.
+\newblock {\em arXiv preprint arXiv:1706.06969\/}.
+
+\bibitem[Heeger and Bergen(1995)Heeger and Bergen]{heeger1995pyramid}
+Heeger, D.~J. and Bergen, J.~R. (1995).
+\newblock Pyramid-based texture analysis/synthesis.
+\newblock In {\em Proceedings of the 22nd annual conference on Computer
+  graphics and interactive techniques\/}, pages 229--238.
+
+\bibitem[Hertzmann(2003)Hertzmann]{hertzmann2003survey}
+Hertzmann, A. (2003).
+\newblock A survey of stroke-based rendering.
+\newblock {\em IEEE Computer Graphics and Applications\/}, (4), 70--81.
+
+\bibitem[Hertzmann {\em et~al.}(2001)Hertzmann, Jacobs, Oliver, Curless, and
+  Salesin]{hertzmann2001image}
+Hertzmann, A., Jacobs, C.~E., Oliver, N., Curless, B., and Salesin, D.~H.
+  (2001).
+\newblock Image analogies.
+\newblock In {\em Proceedings of the 28th annual conference on Computer
+  graphics and interactive techniques\/}, pages 327--340.
+
+\bibitem[Higgins {\em et~al.}(2018)Higgins, Amos, Pfau, Racaniere, Matthey,
+  Rezende, and Lerchner]{higgins2018towards}
+Higgins, I., Amos, D., Pfau, D., Racaniere, S., Matthey, L., Rezende, D., and
+  Lerchner, A. (2018).
+\newblock Towards a definition of disentangled representations.
+\newblock {\em arXiv preprint arXiv:1812.02230\/}.
+
+\bibitem[Huang {\em et~al.}(2017)Huang, Wang, Luo, Ma, Jiang, Zhu, Li, and
+  Liu]{huang2017real}
+Huang, H., Wang, H., Luo, W., Ma, L., Jiang, W., Zhu, X., Li, Z., and Liu, W.
+  (2017).
+\newblock Real-time neural style transfer for videos.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition\/}, pages 783--791.
+
+\bibitem[Jing {\em et~al.}(2019)Jing, Yang, Feng, Ye, Yu, and
+  Song]{jing2019neural}
+Jing, Y., Yang, Y., Feng, Z., Ye, J., Yu, Y., and Song, M. (2019).
+\newblock Neural style transfer: A review.
+\newblock {\em IEEE transactions on visualization and computer graphics\/}.
+
+\bibitem[Johnson {\em et~al.}(2016)Johnson, Alahi, and
+  Fei-Fei]{johnson2016perceptual}
+Johnson, J., Alahi, A., and Fei-Fei, L. (2016).
+\newblock Perceptual losses for real-time style transfer and super-resolution.
+\newblock In {\em European conference on computer vision\/}, pages 694--711.
+  Springer.
+
+\bibitem[Julesz(1962)Julesz]{julesz1962visual}
+Julesz, B. (1962).
+\newblock Visual pattern discrimination.
+\newblock {\em IRE transactions on Information Theory\/}, {\bf 8}(2), 84--92.
+
+\bibitem[Kato {\em et~al.}(2018)Kato, Ushiku, and Harada]{kato2018neural}
+Kato, H., Ushiku, Y., and Harada, T. (2018).
+\newblock Neural 3d mesh renderer.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition\/}, pages 3907--3916.
+
+\bibitem[Kolliopoulos(2005)Kolliopoulos]{kolliopoulos2005image}
+Kolliopoulos, A. (2005).
+\newblock {\em Image segmentation for stylized non-photorealistic rendering and
+  animation\/}.
+\newblock University of Toronto.
+
+\bibitem[Kyprianidis {\em et~al.}(2012)Kyprianidis, Collomosse, Wang, and
+  Isenberg]{kyprianidis2012state}
+Kyprianidis, J.~E., Collomosse, J., Wang, T., and Isenberg, T. (2012).
+\newblock State of the" art?: A taxonomy of artistic stylization techniques for
+  images and video.
+\newblock {\em IEEE transactions on visualization and computer graphics\/},
+  {\bf 19}(5), 866--885.
+
+\bibitem[LeCun {\em et~al.}(1999)LeCun, Haffner, Bottou, and
+  Bengio]{lecun1999object}
+LeCun, Y., Haffner, P., Bottou, L., and Bengio, Y. (1999).
+\newblock Object recognition with gradient-based learning.
+\newblock In {\em Shape, contour and grouping in computer vision\/}, pages
+  319--345. Springer.
+
+\bibitem[Locatello {\em et~al.}(2018)Locatello, Bauer, Lucic, Raetsch, Gelly,
+  Sch{\"o}lkopf, and Bachem]{locatello2018challenging}
+Locatello, F., Bauer, S., Lucic, M., Raetsch, G., Gelly, S., Sch{\"o}lkopf, B.,
+  and Bachem, O. (2018).
+\newblock Challenging common assumptions in the unsupervised learning of
+  disentangled representations.
+\newblock {\em arXiv preprint arXiv:1811.12359\/}.
+
+\bibitem[Loukadakis {\em et~al.}(2018)Loukadakis, Cano, and
+  O’Boyle]{loukadakis2018accelerating}
+Loukadakis, M., Cano, J., and O'Boyle, M. (2018).
+\newblock Accelerating deep neural networks on low power heterogeneous
+  architectures.
+
+\bibitem[Mahendran and Vedaldi(2015)Mahendran and
+  Vedaldi]{mahendran2015understanding}
+Mahendran, A. and Vedaldi, A. (2015).
+\newblock Understanding deep image representations by inverting them.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition\/}, pages 5188--5196.
+
+\bibitem[Portilla and Simoncelli(2000)Portilla and
+  Simoncelli]{portilla2000parametric}
+Portilla, J. and Simoncelli, E.~P. (2000).
+\newblock A parametric texture model based on joint statistics of complex
+  wavelet coefficients.
+\newblock {\em International journal of computer vision\/}, {\bf 40}(1),
+  49--70.
+
+\bibitem[Prisma-Labs(2020)Prisma-Labs]{prisma}
+Prisma-Labs (2016 (accessed June 22nd, 2020)).
+\newblock {\em Prisma: Turn Memories into art\/}.
+
+\bibitem[Risser {\em et~al.}(2017)Risser, Wilmot, and Barnes]{risser2017stable}
+Risser, E., Wilmot, P., and Barnes, C. (2017).
+\newblock Stable and controllable neural texture synthesis and style transfer
+  using histogram losses.
+\newblock {\em arXiv preprint arXiv:1701.08893\/}.
+
+\bibitem[Russakovsky {\em et~al.}(2015)Russakovsky, Deng, Su, Krause, Satheesh,
+  Ma, Huang, Karpathy, Khosla, Bernstein, Berg, and Fei-Fei]{ILSVRC15}
+Russakovsky, O., Deng, J., Su, H., Krause, J., Satheesh, S., Ma, S., Huang, Z.,
+  Karpathy, A., Khosla, A., Bernstein, M., Berg, A.~C., and Fei-Fei, L. (2015).
+\newblock {ImageNet Large Scale Visual Recognition Challenge}.
+\newblock {\em International Journal of Computer Vision (IJCV)\/}, {\bf
+  115}(3), 211--252.
+
+\bibitem[Simonyan and Zisserman(2014)Simonyan and Zisserman]{simonyan2014very}
+Simonyan, K. and Zisserman, A. (2014).
+\newblock Very deep convolutional networks for large-scale image recognition.
+\newblock {\em arXiv preprint arXiv:1409.1556\/}.
+
+\bibitem[Simonyan {\em et~al.}(2013)Simonyan, Vedaldi, and
+  Zisserman]{simonyan2013deep}
+Simonyan, K., Vedaldi, A., and Zisserman, A. (2013).
+\newblock Deep inside convolutional networks: Visualising image classification
+  models and saliency maps.
+\newblock {\em arXiv preprint arXiv:1312.6034\/}.
+
+\bibitem[Tomasi and Manduchi(1998)Tomasi and Manduchi]{tomasi1998bilateral}
+Tomasi, C. and Manduchi, R. (1998).
+\newblock Bilateral filtering for gray and color images.
+\newblock In {\em Sixth international conference on computer vision (IEEE Cat.
+  No. 98CH36271)\/}, pages 839--846. IEEE.
+
+\bibitem[Tucker(2007)Tucker]{tucker2007movies}
+Tucker, H. (2007).
+\newblock At the movies.
+\newblock {\em ITNow\/}, {\bf 49}(5), 8--9.
+
+\bibitem[Winnem{\"o}ller {\em et~al.}(2006)Winnem{\"o}ller, Olsen, and
+  Gooch]{winnemoller2006real}
+Winnem{\"o}ller, H., Olsen, S.~C., and Gooch, B. (2006).
+\newblock Real-time video abstraction.
+\newblock {\em ACM Transactions On Graphics (TOG)\/}, {\bf 25}(3), 1221--1226.
+
+\end{thebibliography}
